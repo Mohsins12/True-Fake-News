@@ -1,0 +1,447 @@
+
+// Notes that I have made during my learning. Showing my progress and some highlights, along with some information that i deemed to be important and 
+some practice codes of python are given at the end. Machine learning codes are on jupyter notebook not in these notes.(Muhammad Mohsin Shakir)
+
+
+
+----------------------------------PYTHON CRASH COURSE------------------------------------------------------
+
+-append() function 
+-len() is used for finding lenght
+-list.extedn() is used for extending list
+-list.append() is used to add an element to the last of the list
+-Tuples are basically arrays that cannot be change or modified in a manner that the lists can be modified, the above
+functions cannot be used in the list but not in the append
+-You can nest lists
+in for loops you can use enumerate that basically uses indexes instead of range
+-slice syntax= x[start, stop, step] at stop it is basically like <x and not <=x; so it will stop before that value blank basically
+means starting at beginning or stopping at end 
+-Useful for lists and you can use slice on tupals
+-Sets (You can do union, intersection and difference and they are very fast you can make set by
+x.set() or s= {elements}
+
+-*args is used for unpakcing data let say u have a set it will unpack all the elements of that set separately
+- and you also dont need to have them in order which makes them really useful
+
+- You can use exceptions to showcase error and you can also handle those exceptions
+
+-lamba. it is basically a one line function 
+Important-----> Dictionaries
+
+
+
+
+----------------------------------NUMPY------------------------------------------------------
+-In numpy you can declare some arrays using np.array and you can basically do linear algebra operations on these arrays. For 
+example if you mnultiply the array with a number let say 2
+then 2*np.array() then all the elements in the array will be multiplied by 2 and if you do addition
+lets say 2+np.array() then all the elements in the array will be increased by 2 other arithmetic operations give similar 
+behaviour
+
+- This is where we differentiate between arrays and lists. As shown above there is difference in operations in lists
+and arrays
+- Dot product:
+- using arrays is fastr thaan using lists similarly we can increase the speed of process using np.array
+-Doing numpy array is a lot times faster than using lists typically with a ratio of 150-200 this was done by using dot 
+product
+- np.linalg.    after . u can type det for determinant. and Inverse for inverse of matrix
+-np.diag  this will return a 1-D vector that has diagonal elements
+- while working with a 2-D array lets say u want to transfer one column to a list or array b you can do 
+that easily by b = a[0,:] the ; transfers all the rows to that specific column
+- if you input a[-1,-2] that means last row and second last column
+- By using bool index we can check a condition and remove any items/ elements that do not satisfy that condition. a[bool_index]
+-np.where(condition, elements or array, replacement
+- By print(a[b]) we can print elements in a that are in b
+- np.argwhere() can be used to find indices of certain elements in array
+- we can sort them by using np.arrange	
+- we can also use reshape to shape the matrix array in a certain manner 
+- np.newaxis can also be used
+- use np.concatenate for joining 2 arrays and np.concatenate(a,b.T) will result in transpose 
+-vstack addsthe new array as a row 36:00
+-print(a.sum(axis=0)) will give sum of row and if you write axis=0 it will give sum of first column if use axis=1
+it will sum row. sinstead of sum we can also use min, max, mean, //std and var//
+- we can also specify data type by dtype=int64  or dtype=float64
+we use b=a.copy() this is due to the fact that a points towards the location of the stored data which if we make b=a 
+and modify that datatype it will result in the modification of the data stored in said location
+
+-we can generate arrays using np.full((array indexes or shape), (number we want array to be full with)) and we can also generate an array
+full of zeros and ones np.zeroes, np.ones and np.eye will make a matrix that is diagonal with surrounded by zeros 
+only diagonal gets filled.
+-np.arange() this generates a 1-D array
+-np.linspace(starting entry, stopping entry, no. of elements) 
+
+
+
+--------------------------------------------------------------PYTHON FOR BEGINNERS--------------------------------------------'
+Only important or information that I deemed was necessary or useful for me to remember will be written below
+f string is basically better to use as it has the capability to generae holes. Let's say you want to write a string but you need to include integers or mathematical
+values. What would you do? In C++ you would have to break the string and do steps that have been made easier in python. And f string make it easy
+f'What is the temperature today? {temperature} It was {Ytemp} yesterday!'
+
+- When we use [:] in lists. What it does is lets say an array[1,2,3,4,5]
+if we print array[2:4] it will print an array starting from index 2 and end at index 4
+
+-Magic methods. Do research on magic methods they are of 2 underscores. __int__ etc;
+
+-Unpacking is a great method to use for manipulating data outside of lists, tuples. for example instead of writing something like 
+x= co[1] 
+y= co[2]
+z= co[3]
+we can simply write it as 
+x,y,z = co 
+Now what this does is that it stores the values of co into x,y,z now note. The way it will store value is that
+co[0] =x , co[1]=y, co[2] = z 
+As index starts from zero not 1
+
+- In a dictionary a key cannot be duplicated. They are unique kind of like how in dictionary a book is only mentioned once.
+
+- None is an object that represents the absence of value
+
+- We can also input value/ data by using dictionary.get(keynote, value to be enetered in keynote)
+
+-Always define function first. You can also use keyword arguments instead of positional arguements when you 
+do not require order of arguements 
+
+- We can set attributes of objects anywhere in the program
+
+- Inheritance is basically used to copy a class into another class
+For example a cat and a dog both are different animals but share some traits like walking, running, eating
+for this we could create a class mammal in which the object of walking, running, eating is passed but we can also differentiate
+like adding bark object for dogs or meow for cat by class Dog(mammal): pass 
+
+-In order to use packages we need to type package name and then module name. like ecommerce.package 
+
+
+------------------------------------------------------Pandas-----------------------------------------------------------
+
+
+You can use head() with a file to print out 15 entires and tail() to display 15 entries from the bottom
+
+-describe() only tells you about data types that are of int or float nature.
+
+-describe(inclue='object) makes it so that it gives you description of objects 
+
+-We can grab/ manipulate columns by writing the file name like df and then df.column_name like df.Rank
+
+- If there is space in between them then in order to use the function you need to do 
+df['column_name']. However if you want to view multiple columns then you have to use this method
+df[['col1','col2','col3',....,'coln']]
+
+-By typing df.coulmn_name.unique() shows unique entries/elements in the column
+
+-The .loc accessor is used to access a group of rows and columns by label(s) or a boolean array.
+When used with a boolean array, as in the corrected code, it filters the rows based on the boolean 
+condition provided. we can use as df.loc['group'] or we can do as df[df['Platform']=='Wii']
+
+-df['New Column']= df['Genre'] + df['Publisher'] ----> using this we can actually combine even strings in a new column and
+that column is automatically shifted towards the last column. No need to declare a new column. If the data is of int type 
+it sums the data. we can also use other arithmetic data
+
+-'iloc` is a method in pandas that is used to select rows and columns by integer position. It allows you to select data by
+row and column index positions, similar to how you would use indexing in NumPy arrays.
+-The general syntax for using `iloc` is:
+df.iloc[row_index, column_index]
+
+-For printing .csv we use df.to_csv('output.csv')
+-For printing .json we use df.to_json()
+-For printing .html we use df.to_html()
+
+
+----------------------------------------------------Machine Learning Algorithms-----------------------------------------
+
+-Note: In all the machine learning algorithms if you don't want to study in depth and only want to know how the algorithm works and how to implement it using
+sklearn then you will be happy to know that most of the algorithms use the following steps
+
+1) Splitting data into target and testing data such that. X is the data where the length and width of sepal and petal is included whereas the name 
+or target value is (after encoding) stored in y.
+
+2) Then we use test_train_split to train the model
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test test_train_split(X,y, test_size = 0.2)
+
+3) Then import the machine learning algorithm from sklearn
+
+4) All the models can be tested using this
+
+model.fit(X_train, y_train)         // Model can be anyname you want just make sure it is equal to the function that you imported. E.g 
+model.score(X_test,t_test)             import LogisticRegression
+
+                                        model = LogisticRegression()            // YOU CAN PUT ANY FUNCTION LIKE THIS   
+
+5) Now you can basically use any model but just remember that there are some algorithms that require certain data manipulation like slicing or 
+encoding, so make sure not to forget that
+
+
+
+
+%matplotlib inline------>(1
+plt.xlabel('area')------>(2
+plt.ylabel('price')------>(3
+plt.scatter(df.area, df.price, color ='red', marker= '+')------>(4
+plt.plot(df.area, reg.predict(df[['area']]), color= 'purple')----->(5
+In this code df is the database we are working on and by using the matplotlib we have plotted the data of the database
+(1)---> this basically 
+(2)---> This is used to label on the plot that the x axis is area
+(3)---> This is used to label on the plot that the y axis is price
+(4)---> This is used to display the points on the graph. The df.area means it takes x-axis points from area.
+The df.area means it takes y-axis points from price. And others are self, explanatory. Marker is symbol for points.
+(5)---> This is used to draw the linear line or Linear regression line from the data we input
+
+
+y = mx + b where m is the slope and b is the intercept 
+
+database.coef_ shows the coefficient of the linear regression which is the slope m.
+
+reg.intercept_ this shows the intercept b.
+
+-We are now using multiple variables
+
+As we are now using multiple variables we have to modify our equation
+ y = mx + b becomes y = m1x1 + m2x2+ m3x3 + b as there are noe more variabels to deal with 
+
+-Due to increase in variables we will also have to increase the number of paramteres that we mention in the
+predict function
+
+-Use df.astype() to convert true/false into 0 and 1 format
+
+-Logistic data is usually in the form of true false hence a linear regression line cannot be applicable properly on the 
+model, hence we use the logistic regression which makes a S shaped plot. This plot is the reslut of the logit function 
+which is the invers of sigmoid function
+
+-what the random forest does is that it takes the decision tree and divides the dataset into random sets of data and 
+applies the decision tree on each set and then it takes the majority decision of the decision tree from all the 
+decision tree and gives us the target value
+
+-ensemble It is when we're using multiple algorithms at once
+
+
+- We can use K fold method to verify the module or algorithm which works the best
+
+- Stratified fold works better in this sense that it keeps data uniform
+
+-Machine learning algorithms are of categorized as three different types supervised, unsupervised, and reinforcement 
+learning
+-Previously we have been studying supervised.
+ We have both class label and target variable present
+-In unsupervised we do not have these 
+
+- There are three types of naive bayes binomial mulitnomial and gaussian
+-Binomial is basically like binary a yes or no, if it exists or not
+-Multinomial is used for discrete data
+-Gaussian is used for continuous data
+- Hyper parameter training	
+- In K-fold we divide the data set into n number of times and then we take one part of the fold
+as testing and the other parts into training and we repeat this process by changing trainning and testing
+and keep changing it for n number of times to find the score and then the average of all the scores is taken
+
+
+- PCA is called a dimensionality reduction technique as it can help us reduce dimesnions. PCA is used such that we can decrease the data that we
+deem to be useless for example in the digits datasets the the first column is black. It is constant, hence we take it out.
+Although it is better to scale the features before. The benefit of PCA is that we can control and decrease computation time by sacrificing features.
+
+-Before using PCA we need to scale the data by using minmax scaler or some other scaler.
+
+
+
+
+
+
+------------------------------------------------------Written codes as Practice-----------------------------------------
+1) Large Name:
+#If name is larger than 7 alphabets prints...
+name = str(input("Name:\n"))
+name.capitalize()
+if len(name)>7:
+    print(f'{name[0:7]}....')
+else:
+    print(name)
+
+-------------------------
+
+2) f string and conditional for temperature:
+
+-------------------------
+
+weather= str(input("Is it hot or cold?\n" ))
+weather = weather.capitalize()
+if weather == "Hot":
+    print("It's hot")
+elif weather== "cold":
+    print("Its cold")
+else:
+    print("He doesn't know")
+temperature = 12
+Ytemp = 23
+print(f'What is the temperature today? {temperature}! It was {Ytemp} yesterday!')
+
+-------------------------        
+
+3)Making a diamond pattern in python:
+
+-------------------------
+i = 1
+
+while i<=5:
+  
+  j= 5
+  k= j-i
+  while k>=0:
+     print(" ", end= '')
+     k=k-1
+   
+  k= j-i  
+  while k>=0 and k<5:
+     
+     print("x", end =' ')
+     k= k+1
+  print("\n")  
+  i= i+1
+i = 1   
+while i<=5:
+  
+  j= 5
+  k= j-i
+  while k>=0 and k<5:
+     print(" ", end= '')
+     k=k+1
+   
+  k= j-i  
+  while k>=0:
+     
+     print("x", end =' ')
+     k= k-1
+  print("\n")  
+  i= i+1            
+-------------------------
+4) Same pyramid code but with input implemented
+-------------------------
+
+#It will print a diamond pyramid such that the input no. will be the layer of upper pyramid. Combined
+we can say for n input it prints a 2n pyramid.
+
+i = 1
+
+count = int(input("Size of diamond:\n "))
+while i<=count:
+  
+  j= count
+  k= j-i
+  while k>=0:
+     print(" ", end= '')
+     k=k-1
+   
+  k= j-i  
+  while k>=0 and k<count:
+     
+     print("x", end =' ')
+     k= k+1
+  print("\n")  
+  i= i+1
+i = 1   
+while i<=count:
+  
+  j= count
+  k= j-i
+  while k>=0 and k<count:
+     print(" ", end= '')
+     k=k+1
+   
+  k= j-i  
+  while k>=0:
+     
+     print("x", end =' ')
+     k= k-1
+  print("\n")  
+  i= i+1 
+---------------------------------
+5) Again printing pyramid but using for loop only
+---------------------------------
+count = int(input("Enter size of pyramids"))
+for i in range(0, count):
+  
+  
+  for f in range ( i , count-1):
+      print(" ", end = '')
+    
+   
+  for k in range( count - i, count+1):
+     
+      print("x ", end ='')
+     
+  print("\n")  
+
+for i in range(0, count):
+  
+  
+  for f in range (0, i):
+      print(" ", end = '')
+    
+   
+  for k in range(0, count - i):
+     
+     
+     print("x ", end ='')
+     
+  print("\n")  
+-----------------------------------
+6) Printing E or F using list in For loop
+-----------------------------------
+f = input("Type the letter you want!: ")
+f = f.lower()
+if f =='e':
+    for x in [5,1,1,5,1,1,5]:
+     print("x"*x)
+elif f == 'f':
+     for x in [5,1,1,5,1,1,1]:
+      print("x"*x)
+-----------------------------------
+7) Accessing Excel using openpyxl 
+-----------------------------------
+import openpyxl as xl
+from openpyxl.chart import BarChart, Reference
+
+wb = xl.load_workbook(r'D:\ohoi\code\lalal\lol.xlsx')
+
+sheet = wb['Sheet1']
+
+
+
+
+
+for i in range(2,10):
+ cell1 = sheet['a2']
+ cell2 = sheet['a3']
+ cell2=sheet.cell(1, 2)
+ cell2.value = "Income"
+ cell1=sheet.cell(1, 1)
+ cell1.value = "Names"
+ cell1=sheet.cell(i, 1)
+ cell1.value = input("Enter the names: ")
+ cell2=sheet.cell(i, 2)
+ cell2.value = input(f"Enter the income of {cell1.value}: ")
+
+ print(cell1.value)
+ print(cell2.value)
+ 
+ 
+
+
+
+for row in range(3,3):
+    cell = cell2
+    
+    corrected_price= cell.value * 0.25
+    corrected_price_cell= sheet.cell(row, 4)
+    corrected_price_cell.value = corrected_price
+    print(corrected_price_cell.value)
+
+values =  Reference(sheet, min_row=2, max_row= sheet.max_row, min_col=4, max_col=4)
+
+chart = BarChart()
+chart.add_data(values)
+sheet.add_chart(chart, 'e2')
+
+wb.save(r'D:\ohoi\code\lalal\lol2.xlsx')
+-----------------------------------------
+

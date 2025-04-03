@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Fake News Detector</h1>
+        
+        <form method="post">
+            <label for="news_title"><strong>News Title:</strong></label>
+            <input type="text" id="news_title" name="news_title" placeholder="Enter news title..." required>
+
+            <label for="news_text"><strong>News Content:</strong></label>
+            <textarea id="news_text" name="news_text" placeholder="Enter full news article..." required></textarea>
+
+            <button type="submit">Check News</button>
+        </form>
+
+        {% if prediction is not none %}
+            <p><strong>Prediction:</strong> {{ prediction }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
